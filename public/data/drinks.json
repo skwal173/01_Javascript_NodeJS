@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Schneegestöper",
+        "kategorie": "Speiseeis Flip",
+        "anzahlPersonen": 16,
+        "datumZubereitung": "1989-01-21",
+        "informationen": "Dieses sollte man trotz alledem im Haus genießen. Vor allem im Sommer beliebt.",
+        "dateiName": "default.jpg"
+    },
+    {
+        "name": "Grashopper",
+        "kategorie": "Cocktails",
+        "anzahlPersonen": 6,
+        "datumZubereitung": "2022-08-04",
+        "informationen": "Für Gäste, die nur auf einem Sprung bleiben",
+        "dateiName": "default.jpg"
+    },
+    {
+        "name": "Mississippi II",
+        "kategorie": "Cocktails",
+        "anzahlPersonen": 3,
+        "datumZubereitung": "1999-05-11",
+        "informationen": "Ersetzt die Reise mit dem River-Boot",
+        "dateiName": "default.jpg"
+    },
+    {
+        "name": "Irish Coffee",
+        "kategorie": "Flammende Cafés",
+        "anzahlPersonen": 3,
+        "datumZubereitung": "2022-08-04",
+        "informationen": "... das kommt immer gut an (bitte nicht flambieren)",
+        "dateiName": "default.jpg"
+    },
+    {
+        "name": "Breakfast Egg Nogg",
+        "kategorie": "Egg Noggs",
+        "anzahlPersonen": 7,
+        "datumZubereitung": "2001-01-02",
+        "informationen": "Für die kalte Jahreszeit wäre als Heißgetränk der Virginia Egg Nogg zu empfehlen",
+        "dateiName": "default.jpg"
+    },
+    {
+        "name": "Feuerzangenbowle",
+        "kategorie": "Bowlen",
+        "anzahlPersonen": 21,
+        "datumZubereitung": "2002-08-04",
+        "informationen": "Eine flammende Angelegeheit mit viel Hokuspokus - dabei kann es schnell so lustig werden wie in dem berühmten...",
+        "dateiName": "default.jpg"
+    },
+    {
+        "name": "Melonenbowle",
+        "kategorie": "Bowlen",
+        "anzahlPersonen": 12,
+        "datumZubereitung": "2022-08-04",
+        "informationen": "Nur echt - mit ganzen Früchten !!",
+        "dateiName": "default.jpg"
+    }
+]

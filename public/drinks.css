@@ -1,0 +1,39 @@
+
+/* spezielle CSS für den Dateiauswahlbutton */
+
+input[type="file"]{
+    margin-top: 23px;
+    opacity: 0.0;    
+    z-index: 2;
+    top: 340px;
+    left: 40;
+    width: 90%;
+    padding: 4px;
+    cursor: pointer !important;
+    /*width: 0.1px;
+    height: 0.1px;*/
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+input[type="file"]:focus + label[for="files"]{
+    border: 10px solid #85E5FF;
+    cursor: pointer !important;
+}
+
+label[for="files"]{
+    margin-top: 23px;
+    position: absolute;
+    background: #009688;
+    padding: 8px;
+    color: #fff !important;
+    font-family: sans-serif;
+    border-radius: 4px;
+    /*cursor: pointer;*/
+    font-size: 16px;
+}
+
+label[for="files"]:hover{
+    /*background: #FF9E59;*/
+    cursor: pointer !important;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Titel</title>
+    <style></style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" type="text/css" href="drinks.css" media="screen" />
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="drinks.js" type="module" defer></script>
+    <!---->
+
+    <script></script>
+</head>
+
+<body style="background-color: black;">
+    <div>
+        <!-- class="w3-black"-->
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">
+            <button id="btnCloseLeftMenu" class="w3-bar-item w3-button w3-large">Admin-Console &times;</button>
+            <button id="btnLoad" class="w3-bar-item w3-button w3-black">Load from file</button>
+            <button id="btnSaveLS" class="w3-bar-item w3-button w3-black">Save to Local Storage</button>
+            <button id="btnLoadLS" class="w3-bar-item w3-button w3-black">Load from Local Storage</button>
+            <button id="btnClear" class="w3-bar-item w3-button w3-black">Clear Table</button>
+            <!--<button id="btnid01Block" 
+                class="w3-bar-item w3-button w3-black">
+                Show Details</button>  -->
+
+            <button onclick="document.getElementById('id01').style.display='block'"
+                class="w3-bar-item w3-button w3-black">
+                Show Details</button>
+            <button class="w3-bar-item w3-button w3-large">--------------</button>
+            <button id="btnFillDB" class="w3-bar-item w3-button w3-black">Fill DB</button>
+        </div>
+
+        <div class="w3-display-container">
+            <img id="imgBG" class="w3-animate-input"
+                src="pics/alcoholic-beverage-cocktail-with-slices-of-lemon_medium.jpg" style="width:100%" alt="die Bar">
+            <div class="w3-display-topleft w3-container w3-text-white">
+                <button id="btnOpenLeftMenu" class="w3-button w3-xxlarge w3-left fa">&#xf085;</button>
+                <!--&#9776;-->
+            </div>
+            <div class="w3-display-topright w3-container">
+                <div class="w3-bar w3-cursive w3-text-white w3-xxxlarge">
+                    <div class="w3-bar-item w3-cursive w3-text-white w3-xxlarge">tiki-bar
+                    </div>
+                    <div class="w3-cursive w3-text-white w3-xxxlarge">
+                        <img class="w3-animate-input" src="pics/logo_tikibar.png" style="width:30%" alt="die Bar">
+                    </div>
+                </div>
+            </div>
+            <div class="w3-display-topmiddle w3-container w3-teal">
+                <div class="w3-row">
+                    <h1>M I X - Getränke Historie</h1>
+                </div>
+            </div>
+            <div id="greatButton"
+                class="w3-opacity-min w3-button w3-display-middle w3-container w3-teal w3-cursive w3-jumbo"
+                style="width:100%">
+                Load all my <i class="fa">&#xf000;</i> . . .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- w3-display-middle w3-margin-->
+                <!--<p>I have 16px margin on all sides.</p>-->
+            </div>
+            <div id="id00" class="w3-display-middle w3-container" style="width:100%">
+                <!-- w3-display-middle w3-margin-->
+                <!--<p>I have 16px margin on all sides.</p>-->
+            </div>
+        </div>
+
+        <!-- Modal (Detailansicht) -->
+        <div id="id01" class="w3-modal w3-opacity-min">
+            <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-teal">
+                    <div class="w3-display-container">
+                        <span id="btnCloseModal" class="w3-button w3-display-topright w3-xxlarge">&times;</span>
+                        <h2>Detailansicht<br>&nbsp;</h2>
+                        <img id="detailPic" class="w3-display-middle w3-container w3-hover-opacity"
+                            src="pics/default.jpg" alt="der passende Drink" style="height:100px;">
+                    </div>
+                </header>
+                <div class="w3-row-padding">
+                    <div class="w3-row-padding">
+                        <div class="w3-row">
+                            <div class="w3-half">
+                                <p>
+                                    <label class="w3-text-brown"><b>Name</b></label>
+                                    <input class="w3-input w3-border w3-sand" name="name" type="text">
+                                </p>
+                            </div>
+                            <div class="w3-half w3-leftbar w3-border-white">
+                                <p>
+                                    <label class="w3-text-brown"><b>Kategorie</b></label>
+                                    <input class="w3-input w3-border w3-sand" name="kategorie" type="text">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-half">
+                                <p>
+                                    <label class="w3-text-brown"><b>Anzahl der Personen</b></label>
+                                    <input class="w3-input w3-border w3-sand" name="anzahlPersonen" type="number"
+                                        min="1" max="99">
+                                </p>
+                            </div>
+                            <div class="w3-half w3-leftbar w3-border-white">
+                                <p>
+                                    <label class="w3-text-brown"><b>Datum der Zubereitung</b></label>
+                                    <input class="w3-input w3-border w3-sand" name="datumZubereitung" type="date">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w3-row w3-opacity-max">
+                            <div class="w3-half">
+                                <p>
+                                    <label id="fromFileInputLabel" class="w3-text-brown"><b>Dateiname</b></label>
+                                    <input id="fromFileInput" class="w3-input w3-border w3-sand" name="dateiName"
+                                        type="text" accept="image/jpeg">
+                                    <!-- z-index="1" style="position: absolute;"-->
+                                </p>
+                            </div>
+                            <div class="w3-half w3-leftbar w3-border-white">
+                                <p>
+                                    <label id="fileInputLabel" class="w3-text-brown" for="files"><b>aus Dateiordner
+                                            "pics"</b></label>
+                                    <input id="fileInput" class="w3-border w3-sand" name="help" type="file"
+                                        accept=".jpg, .jpeg">
+                                    <!--<input id="fileInput" class="w3-border w3-sand" name="help" type="file" accept=".jpg, .jpeg"
+                                        onchange="showname()"> -->
+                                    <!-- z-index="2" style="position: absolute;"w3-input -->
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-half">
+                                <p>
+                                    <label class="w3-text-brown"><b>Bildauswahl</b></label>
+                                    <select id="bildAuswahl" class="w3-select w3-border w3-sand" name="bildAuswahl">
+                                        <option value="default.jpg" disabled selected>default.jpg</option>
+                                        <!--<option value="1">Option 1</option>-->
+                                        
+                                    </select>
+                                    <!-- z-index="1" style="position: absolute;"-->
+                                </p>
+                            </div>
+                            <div class="w3-half w3-leftbar w3-border-white">
+                                <p>
+
+                                <form><label id="dateienLabel" class="w3-text-brown" for="files"><b>UPLOAD in Dateiordner
+                                            "pics"</b></label>
+                                    <input id="dateien" class="w3-btn w3-white w3-text-teal" type="file"
+                                        name="filetoupload" multiple>
+                                </form>
+
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w3-cell-row">
+                            <p>
+                                <label class="w3-text-brown"><b>Informationen</b></label>
+                                <textarea class="w3-input w3-border w3-sand" name="informationen" rows="4"
+                                    type="text"></textarea>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="w3-container w3-teal w3-padding-16">
+                    <div class="w3-show-inline-block">
+                        <button onclick="document.getElementById('id01').style.display='none'" id="btnSpeichern"
+                            class="w3-btn w3-white w3-text-teal">Speichern</button>
+                        <button onclick="document.getElementById('id01').style.display='none'" id="btnLoeschen"
+                            class="w3-btn w3-white w3-text-teal">Löschen</button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
