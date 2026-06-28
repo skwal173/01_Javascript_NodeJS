@@ -1,7 +1,7 @@
 'use strict';
 
 // import components from './components.js';
-   import "./drinks.js";
+import "./drinks.js";
 
 const domgeneratetable = {
 
@@ -21,13 +21,29 @@ const domgeneratetable = {
     },
     
     generateTable (table, data, offset) {
+        // Sammelt dynamisch alle eindeutigen Keys aus ALLEN Datensätzen,
+        // damit kein neuer oder alter Drink jemals die Spalten verschieben kann!
+        let allKeys = [];
+        for (let element of data) {
+            for (let key in element) {
+                if (!allKeys.includes(key)) {
+                    allKeys.push(key);
+                }
+            }
+        }
+
         for (let element of data) {
             let i = offset;
             let row = table.insertRow();
-            for (let key in element) {
+            
+            // Wir gehen exakt die gesammelten Keys durch
+            for (let key of allKeys) {
                 if (i <= 0) {
                     let cell = row.insertCell();
-                    let text = document.createTextNode(element[key]);   //
+                    // Der unfehlbare Schutz: Fehlt ein Key (wie _id), setzen wir ein "-" ein,
+                    // anstatt dass nachfolgende Daten eine Spalte nach links rutschen!
+                    let wert = element[key] !== undefined ? element[key] : "-";
+                    let text = document.createTextNode(wert);
                     cell.appendChild(text);
                 }
                 i--;
@@ -38,13 +54,6 @@ const domgeneratetable = {
     generateTableFoot (table, data) {
         let tfoot = table.createTFoot();
         let row = tfoot.insertRow();
-        //for (let key in data) {
-        // let td = document.createElement("td");
-        // let text = document.createTextNode(data[key]);
-        // td.appendChild(text);
-        // row.appendChild(td);
-        //     break;
-        // }
         let td = document.createElement("td");
         let text = document.createTextNode('Neuen Eintrag erstellen');
         td.appendChild(text);
@@ -59,7 +68,6 @@ const domgeneratetable = {
         $("thead tr th:contains(datumZubereitung)").text("Zubereitung");
         $("thead tr th:contains(informationen)").text("Informationen");
         $("thead tr th:contains(dateiName)").text("Dateiname");
-        //$('thead').css({ "background-color": "teal", "color": "white", "font-size": "110%" });
         $('thead').addClass("w3-teal w3-cursive w3-xlarge");
     },
 
