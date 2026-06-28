@@ -3,12 +3,12 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/getAllDrinks",
-      "destination": "/drinks.json"
+      "source": "/",
+      "destination": "/public/index.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/public/$1"
+      "source": "/getAllDrinks",
+      "destination": "/drinks.json"
     }
   ]
 }
