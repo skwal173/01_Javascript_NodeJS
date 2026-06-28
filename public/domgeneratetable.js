@@ -21,9 +21,10 @@ const domgeneratetable = {
     },
     
     generateTable (table, data, offset) {
-        // Sammelt dynamisch alle eindeutigen Keys aus ALLEN Datensätzen,
-        // damit kein neuer oder alter Drink jemals die Spalten verschieben kann!
-        let allKeys = [];
+        // Wir sammeln alle Keys, zwingen _id und _rev aber nach ganz vorne,
+        // damit Ihr offset von 2 immer exakt diese beiden Spalten ausblendet!
+        let allKeys = ["_id", "_rev"];
+        
         for (let element of data) {
             for (let key in element) {
                 if (!allKeys.includes(key)) {
@@ -36,13 +37,12 @@ const domgeneratetable = {
             let i = offset;
             let row = table.insertRow();
             
-            // Wir gehen exakt die gesammelten Keys durch
+            // Wir gehen exakt die perfekt sortierten Keys durch
             for (let key of allKeys) {
                 if (i <= 0) {
                     let cell = row.insertCell();
-                    // Der unfehlbare Schutz: Fehlt ein Key (wie _id), setzen wir ein "-" ein,
-                    // anstatt dass nachfolgende Daten eine Spalte nach links rutschen!
-                    let wert = element[key] !== undefined ? element[key] : "-";
+                    // Wenn ein Drink kein _id oder _rev hat, bleibt die Zelle unsichtbar leer
+                    let wert = element[key] !== undefined ? element[key] : "";
                     let text = document.createTextNode(wert);
                     cell.appendChild(text);
                 }
