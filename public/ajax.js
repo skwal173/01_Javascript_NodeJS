@@ -2,8 +2,7 @@
 
 // 🔌 IHRE CLOUD-VERBINDUNG (Fügen Sie hier Ihre Schlüssel ein!)
 const SUPABASE_URL = "https://purqftxginscinsrrezf.supabase.co/rest/v1/";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1cnFmdHhnaW5zY2luc3JyZXpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjkyMTMsImV4cCI6MjA5ODI0NTIxM30.UBXrrFBWGq_q84FJ6GQgj1ZOMO1WiipcqXdOJZJr44Y
-";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1cnFmdHhnaW5zY2luc3JyZXpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjkyMTMsImV4cCI6MjA5ODI0NTIxM30.UBXrrFBWGq_q84FJ6GQgj1ZOMO1WiipcqXdOJZJr44Y";
 
 const HEADERS = {
     'apikey': SUPABASE_KEY,
