@@ -20,30 +20,40 @@ const domgeneratetable = {
         }
     },
     
-    generateTable (table, data, offset) {
-        // Wir sammeln alle Keys, zwingen _id und _rev aber nach ganz vorne,
-        // damit Ihr offset von 2 immer exakt diese beiden Spalten ausblendet!
-        let allKeys = ["_id", "_rev"];
-        
-        for (let element of data) {
-            for (let key in element) {
-                if (!allKeys.includes(key)) {
-                    allKeys.push(key);
-                }
-            }
-        }
-
+    /*generateTable (table, data, offset) {
         for (let element of data) {
             let i = offset;
             let row = table.insertRow();
             
-            // Wir gehen exakt die perfekt sortierten Keys durch
-            for (let key of allKeys) {
+            // Krisenfester Daten-Bügler: Wir füllen fehlende Keys dynamisch auf,
+            // damit die Schleife niemals die Spalten verschiebt!
+            if (element._id === undefined) element._id = "-";
+            if (element._rev === undefined) element._rev = "-";
+
+            for (let key in element) {
                 if (i <= 0) {
                     let cell = row.insertCell();
-                    // Wenn ein Drink kein _id oder _rev hat, bleibt die Zelle unsichtbar leer
-                    let wert = element[key] !== undefined ? element[key] : "";
-                    let text = document.createTextNode(wert);
+                    let text = document.createTextNode(element[key]);
+                    cell.appendChild(text);
+                }
+                i--;
+            }
+        }
+    },*/
+
+    generateTable (table, data, offset) {
+        for (let element of data) {
+            let i = offset;
+            let row = table.insertRow();
+            
+            // Wir biegen die alten CouchDB-Felder auf die neuen Supabase-Werte um!
+            if (element._id === undefined) element._id = element.id || "-";
+            if (element._rev === undefined) element._rev = element.created_at ? new Date(element.created_at).toLocaleDateString() : "-";
+
+            for (let key in element) {
+                if (i <= 0) {
+                    let cell = row.insertCell();
+                    let text = document.createTextNode(element[key]);
                     cell.appendChild(text);
                 }
                 i--;
